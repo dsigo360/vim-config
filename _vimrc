@@ -160,8 +160,8 @@ let g:livedown_open = 1
 let g:livedown_port = 1234
 let g:livedown_browser = "chrome"
 
-" Plugin - Vim Room
-let g:vimroom_sidebar_height = 0
+" Plugin Vim Markdown
+let g:markdown_syntax_conceal = 0
 
 " Plugin - Vim Lexical
 let g:lexical#spell = 1
@@ -177,6 +177,9 @@ augroup lexical
   autocmd FileType text call lexical#init({ 'spell': 0 })
   autocmd FileType html call lexical#init()
 augroup END
+
+" Plugin - Vim Room
+let g:vimroom_sidebar_height = 0
 
 " Plugin - Prettier
 let g:prettier#config#bracket_spacing = get(g:,'prettier#config#bracket_spacing', 'true')
