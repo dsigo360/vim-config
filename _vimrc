@@ -3,6 +3,7 @@ call plug#begin('C:\Program\ Files\ (x86)\Vim\vimfiles\plugged')
 
   " Vim Linting / Autocomplete
   Plug 'w0rp/ale'
+
   " Plug 'ervandew/supertab'
   Plug 'mattn/emmet-vim'
   Plug 'prettier/vim-prettier', {
@@ -24,6 +25,10 @@ call plug#begin('C:\Program\ Files\ (x86)\Vim\vimfiles\plugged')
   Plug 'mxw/vim-jsx'
   Plug 'moll/vim-node'
 
+  " Markdown Functionality
+  Plug 'shime/vim-livedown'
+  Plug 'tpope/vim-markdown'
+
   " SASS/CSS Functionality
   Plug 'ap/vim-css-color'
 
@@ -33,6 +38,7 @@ call plug#begin('C:\Program\ Files\ (x86)\Vim\vimfiles\plugged')
   Plug 'tpope/vim-commentary'
   Plug 'Yggdroot/indentLine'
   Plug 'airblade/vim-gitgutter'
+  Plug 'mikewest/vimroom'
 
   " Vim Themes
   Plug 'drewtempelmeyer/palenight.vim'
@@ -148,6 +154,15 @@ let g:indentLine_char = '¦'
 " Plugin - Vim JSON
 let g:vim_json_syntax_conceal = 0
 
+" Plugin - Vim Livedown
+let g:livedown_autorun = 0
+let g:livedown_open = 1
+let g:livedown_port = 1234
+let g:livedown_browser = "chrome"
+
+" Plugin - Vim Room
+let g:vimroom_sidebar_height = 0
+
 " Plugin - Vim Lexical
 let g:lexical#spell = 1
 let g:lexical#spellfile = ['~\.vim\spell\en.utf-8.add']
@@ -178,6 +193,9 @@ let g:prettier#config#bracket_spacing = get(g:,'prettier#config#bracket_spacing'
   " Emmet
   imap hh <C-y>,
   imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+
+  " Livedown
+  map <F3> :LivedownToggle<CR>
 
 " Custom Pencil Theme Javascript Highlighting
 highlight jsFuncCall guifg=#E32791
