@@ -7,8 +7,7 @@
     "mocha": true,
     "jest": true,
     "jquery": true,
-    "mongo": true,
-    "webextentions": true,
+    "mongo": true
   },
   "parser": "babel-eslint",
   "rules": {
