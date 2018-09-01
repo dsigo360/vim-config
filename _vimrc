@@ -158,7 +158,7 @@ let g:vim_json_syntax_conceal = 0
 let g:livedown_autorun = 0
 let g:livedown_open = 1
 let g:livedown_port = 1234
-let g:livedown_browser = "chrome"
+let g:livedown_browser = 'chrome'
 
 " Plugin Vim Markdown
 let g:markdown_syntax_conceal = 0
