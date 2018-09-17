@@ -69,6 +69,10 @@ set shiftwidth=2
 set backspace=indent,eol,start
 set updatetime=100
 
+" Update files if changed by outside command
+set autoread
+au CursorHold * checktime
+
 set termguicolors
 
 set bg=dark
@@ -108,7 +112,7 @@ set guioptions-=m  "menu bar
 set guioptions-=T  "toolbar
 set guioptions-=r  "scrollbar
 set guioptions-=r guioptions-=L "Prevents window from moving (scrollbar workaround)
-set belloff=all
+set belloff=all " Windows ding sound
 
 " set lines=999 columns=999
 
@@ -133,6 +137,7 @@ let g:ale_linters = {'jsx': ['stylelint', 'eslint']}
 let g:ale_linter_aliases = {'jsx': 'css'}
 let g:ale_open_vertical = 1
 
+" Replace executable with regular eslint if it fails
 let g:ale_javascript_eslint_use_global = 1
 let g:ale_javascript_eslint_executable = 'eslint_d'
 
@@ -181,7 +186,7 @@ augroup END
 " Plugin - Vim Room
 let g:vimroom_sidebar_height = 0
 
-" Plugin - Prettier
+" Plugin - Vim Prettier
 let g:prettier#config#bracket_spacing = get(g:,'prettier#config#bracket_spacing', 'true')
 
 " Map Keybindings 
