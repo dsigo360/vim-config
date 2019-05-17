@@ -17,6 +17,9 @@ call plug#begin('C:\Program\ Files\ (x86)\Vim\vimfiles\plugged')
   Plug 'scrooloose/nerdtree'
   Plug 'vim-airline/vim-airline'
 
+  " C++ / CTags / TagList
+  Plug 'vim-scripts/taglist.vim'
+
   " JavaScript Functionality
   Plug 'pangloss/vim-javascript'
   Plug 'crusoexia/vim-javascript-lib'
@@ -131,8 +134,8 @@ let g:airline#extensions#ale#enabled = 1
 " Plugin - Ale
 let g:ale_completion_enabled = 1
 let g:ale_sign_error = '>'  
-let g:ale_open_list = 1
-let g:ale_list_window_size = 10
+let g:ale_open_list = 0
+let g:ale_list_window_size = 5
 let g:ale_linters = {'jsx': ['stylelint', 'eslint']}
 let g:ale_linter_aliases = {'jsx': 'css'}
 let g:ale_open_vertical = 1
@@ -140,6 +143,10 @@ let g:ale_open_vertical = 1
 " Replace executable with regular eslint if it fails
 let g:ale_javascript_eslint_use_global = 1
 let g:ale_javascript_eslint_executable = 'eslint_d'
+
+" Plugin - TagList
+let s:Tlist_def_fgl_settings = 'fgl;f:function;c:cursor;s:prepared;v:variable' 
+let s:Tlist_Inc_Winwidth=25
 
 " Plugin - ctrlP (File Search)
 let g:ctrlp_working_path_mode = 'ra'
@@ -179,8 +186,9 @@ augroup lexical
   autocmd FileType markdown,mkd call lexical#init()
   autocmd FileType vim call lexical#init()
   autocmd FileType javascript,js call lexical#init()
-  autocmd FileType text call lexical#init({ 'spell': 0 })
+  autocmd FileType text,txt call lexical#init()
   autocmd FileType html call lexical#init()
+  autocmd FileType cpp call lexical#init()
 augroup END
 
 " Plugin - Vim Room
@@ -199,11 +207,20 @@ let g:prettier#config#bracket_spacing = get(g:,'prettier#config#bracket_spacing'
   nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
   " Emmet
+    " Stop it from triggering in non-related files
+    let g:user_emmet_install_global = 0
+    autocmd FileType html,css,js,jsx EmmetInstall
+
   imap hh <C-y>,
-  imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+  "imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>") just for testing
+
 
   " Livedown
   map <F3> :LivedownToggle<CR>
+
+  " TagList
+	nmap <silent> <F8> :TlistToggle<CR>
+
 
 " Custom Pencil Theme Javascript Highlighting
 highlight jsFuncCall guifg=#E32791
