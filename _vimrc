@@ -161,7 +161,7 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let g:NERDTreeWinSize=25
 
 " Plugin - Vim Indent Lines
-let g:indentLine_char = '¦'
+let g:indentLine_char = '|'
 
 " Plugin - Vim JSON
 let g:vim_json_syntax_conceal = 0
